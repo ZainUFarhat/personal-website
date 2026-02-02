@@ -34,33 +34,33 @@ nav {
     padding: 0 1rem;
 }
 
-/* --- THE FIX FOR ALIGNMENT --- */
+
 .profile-flex {
     display: flex;
-    align-items: center; 
+    align-items: flex-start; 
     justify-content: space-between;
-    gap: 2rem;
+    gap: 3rem;
     margin-top: 2rem;
-    width: 100%; /* Ensure it takes full container width */
 }
 
-.bio {
-    flex: 3; /* Gives text significantly more space */
-    min-width: 0; /* Prevents text from pushing the image out */
+.bio h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    white-space: nowrap; 
 }
 
 .profile-photo {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    min-width: 200px; /* Ensures the photo area doesn't shrink to 0 */
+    padding-top: 2.5rem;
 }
 
 .profile-photo img {
-    width: 200px; /* Fixed display width */
-    height: 200px; /* Fixed display height */
-    max-width: 100%; /* Safety check for large files */
-    object-fit: cover; /* Crops your 1920x1280 into a square */
+    width: 250px !important;
+    height: 250px !important;
+    object-fit: cover !important;
     border-radius: 12px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
