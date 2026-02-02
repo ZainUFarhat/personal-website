@@ -34,50 +34,44 @@ nav {
     padding: 0 1rem;
 }
 
+/* --- THE FIX FOR ALIGNMENT --- */
 .profile-flex {
     display: flex;
-    align-items: center; /* Vertically centers the text and photo */
-    justify-content: space-between; /* Pushes text left and photo right */
-    gap: 3rem;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 2rem;
     margin-top: 2rem;
+    width: 100%; /* Ensure it takes full container width */
 }
 
 .bio {
-    flex: 2; /* Gives the text more room */
+    flex: 3; /* Gives text significantly more space */
+    min-width: 0; /* Prevents text from pushing the image out */
 }
 
 .profile-photo {
-    flex: 1; /* Gives the photo less room */
+    flex: 1;
     display: flex;
     justify-content: flex-end;
+    min-width: 200px; /* Ensures the photo area doesn't shrink to 0 */
 }
 
 .profile-photo img {
-    /* THIS IS THE FIX FOR THE GIANT IMAGE */
-    width: 250px; /* Forces it to stay this width */
-    height: 250px; /* Forces a square aspect ratio */
-    object-fit: cover; /* Crops the 1920x1280 into the square without squishing it */
-    border-radius: 12px; /* Slight rounded corners (looks more modern than a full circle) */
+    width: 200px; /* Fixed display width */
+    height: 200px; /* Fixed display height */
+    max-width: 100%; /* Safety check for large files */
+    object-fit: cover; /* Crops your 1920x1280 into a square */
+    border-radius: 12px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* For mobile: stack them so the photo is on top of the text */
-@media (max-width: 768px) {
-    .profile-flex {
-        flex-direction: column-reverse; /* Puts photo on top, bio below on phones */
-        text-align: center;
-    }
-    .profile-photo {
-        justify-content: center;
-    }
-}
-
+/* --- REST OF THE STYLES --- */
 nav ul { list-style: none; display: flex; gap: 20px; padding: 0; }
 nav a { text-decoration: none; color: var(--primary); font-weight: 500; }
 nav a:hover { color: var(--accent); }
 
-.bio h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.bio h1 { font-size: 2.5rem; margin-bottom: 0.5rem; margin-top: 0; }
 .socials a { color: var(--accent); text-decoration: none; font-weight: bold; }
 
 .pub-item {
@@ -94,3 +88,14 @@ nav a:hover { color: var(--accent); }
 }
 
 footer { text-align: center; padding: 3rem; font-size: 0.9rem; color: #777; }
+
+/* Responsive Mobile Fix */
+@media (max-width: 768px) {
+    .profile-flex {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .profile-photo {
+        justify-content: center;
+    }
+}
