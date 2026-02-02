@@ -34,6 +34,45 @@ nav {
     padding: 0 1rem;
 }
 
+.profile-flex {
+    display: flex;
+    align-items: center; /* Vertically centers the text and photo */
+    justify-content: space-between; /* Pushes text left and photo right */
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.bio {
+    flex: 2; /* Gives the text more room */
+}
+
+.profile-photo {
+    flex: 1; /* Gives the photo less room */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-photo img {
+    /* THIS IS THE FIX FOR THE GIANT IMAGE */
+    width: 250px; /* Forces it to stay this width */
+    height: 250px; /* Forces a square aspect ratio */
+    object-fit: cover; /* Crops the 1920x1280 into the square without squishing it */
+    border-radius: 12px; /* Slight rounded corners (looks more modern than a full circle) */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* For mobile: stack them so the photo is on top of the text */
+@media (max-width: 768px) {
+    .profile-flex {
+        flex-direction: column-reverse; /* Puts photo on top, bio below on phones */
+        text-align: center;
+    }
+    .profile-photo {
+        justify-content: center;
+    }
+}
+
 nav ul { list-style: none; display: flex; gap: 20px; padding: 0; }
 nav a { text-decoration: none; color: var(--primary); font-weight: 500; }
 nav a:hover { color: var(--accent); }
