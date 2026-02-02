@@ -34,27 +34,45 @@ nav {
     padding: 0 1rem;
 }
 
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+#about h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    white-space: nowrap;
+    width: 100%;
+}
 
 .profile-flex {
     display: flex;
-    align-items: flex-start; 
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 3rem;
-    margin-top: 2rem;
+    gap: 2rem;
 }
 
-.bio h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    margin-top: 0;
-    white-space: nowrap; 
+.bio {
+    flex: 2;
 }
 
 .profile-photo {
-    float: right; 
-    margin-left: 2rem; 
-    margin-bottom: 1rem;
-    margin-top: 1rem; 
+    flex: 0 0 200px;
 }
 
 .profile-photo img {
@@ -64,27 +82,18 @@ nav {
     border-radius: 12px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: block;
 }
 
-.bio h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    white-space: nowrap; 
+.socials {
+    margin-top: 1.5rem;
 }
 
-.bio::after {
-    content: "";
-    clear: both;
-    display: table;
+.socials a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
 }
-
-/* --- REST OF THE STYLES --- */
-nav ul { list-style: none; display: flex; gap: 20px; padding: 0; }
-nav a { text-decoration: none; color: var(--primary); font-weight: 500; }
-nav a:hover { color: var(--accent); }
-
-.bio h1 { font-size: 2.5rem; margin-bottom: 0.5rem; margin-top: 0; }
-.socials a { color: var(--accent); text-decoration: none; font-weight: bold; }
 
 .pub-item {
     padding: 1rem 0;
@@ -99,15 +108,20 @@ nav a:hover { color: var(--accent); }
     margin-top: 1rem;
 }
 
-footer { text-align: center; padding: 3rem; font-size: 0.9rem; color: #777; }
+footer {
+    text-align: center;
+    padding: 3rem;
+    font-size: 0.9rem;
+    color: #777;
+}
 
-/* Responsive Mobile Fix */
 @media (max-width: 768px) {
     .profile-flex {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
     }
     .profile-photo {
-        justify-content: center;
+        margin: 0 auto;
+        order: -1;
     }
 }
